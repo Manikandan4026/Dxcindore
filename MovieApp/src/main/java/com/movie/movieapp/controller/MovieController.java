@@ -1,5 +1,6 @@
 package com.movie.movieapp.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,10 @@ public class MovieController {
 	public Movie updateMovie(@RequestBody Movie movie) {
 		return this.movieservice.updateMovie(movie);
 		
+	}
+	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	public List<Movie> getAllMovie(){
+		return this.movieservice.getAllMovies();
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
